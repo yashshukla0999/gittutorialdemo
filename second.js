@@ -43,18 +43,36 @@
 // var container = document.querySelector('header .container');
 // var h1 = document.querySelector('header h1');
 // container.insertBefore('header h1');
-var form = document.getElementById('addform');
-var itemlist=document.getElementById('items');
-form.addEventListener('Submit',additem);
-    function additem(e){
-        e.preventDefault();
-    
-    var newitem = document.getElementById('item').value;
+var form  = document.getElementById('addForm');
+var addList = document.getElementById('items');
+form.addEventListener('keyup',filteritems);
+// form.addEventListener('submit', additem);
+// function additem(e){
+//     e.preventDefault();
 
-    var li = document.createElement('li');
-    li.className='list-group-item';
-    li.appendChild(document.createTextNode(newitem));
-    itemlist.appendChild(li);
+//     var newItem = document.getElementById('item').value;
+//     var li = document.createElement('li');
+     
 
-    }  
+//     li.className='list-group-item';
+//     li.appendChild(document.createTextNode(newItem));
+
+// var deletebtn = document.createElement('button');
+
+
+
+
+// deletebtn.className='btn btn-danger btn-sm float-right delete'
+// deletebtn.appendChild(document.createTextNode('X'));
+// li.appendChild(deletebtn);
+// addList.appendChild(li);
+// }
+function fiterItems(e){
+    var text =e.target.value.toLowerCase()
+    var items  = addList.getElementsByTagName('li');
+    Array.form(items).forEach(function(item){
+        var itemName=item.firstChild.textContent;
+    });
+
+}
 
