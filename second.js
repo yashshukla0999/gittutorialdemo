@@ -18,28 +18,43 @@
 // for(let i = 0;i<bg.length;i++){
 //     bg[i].style.backgroundColor='green';
 // }
-const item = document.querySelector('#items');
+// const item = document.querySelector('#items');
 
-console.log(item.parentElement.parentElement.parentElement);
-//first element
-item.firstElementChild.textContent='hello';
-console.log(item.firstElementChild);
-//last element
-item.lastElementChild.textContent='world';
-console.log(item.lastElementChild);
-//next siblings
-console.log(item.nextElementSibling);
-//revious sibling
-console.log(item.previousElementSibling);
-//
-var newdiv = document.createElement('div');
-newdiv.className = 'hello'
-newdiv.setAttribute('title','hello div');
-var newdivtext = document.createTextNode('Hello World')
-newdiv.appendChild(newdivtext);
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
-container.insertBefore(newdiv,h1);
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
-container.insertBefore('header h1');
+// console.log(item.parentElement.parentElement.parentElement);
+// //first element
+// item.firstElementChild.textContent='hello';
+// console.log(item.firstElementChild);
+// //last element
+// item.lastElementChild.textContent='world';
+// console.log(item.lastElementChild);
+// //next siblings
+// console.log(item.nextElementSibling);
+// //revious sibling
+// console.log(item.previousElementSibling);
+// //
+// var newdiv = document.createElement('div');
+// newdiv.className = 'hello'
+// newdiv.setAttribute('title','hello div');
+// var newdivtext = document.createTextNode('Hello World')
+// newdiv.appendChild(newdivtext);
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
+// container.insertBefore(newdiv,h1);
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
+// container.insertBefore('header h1');
+var form = document.getElementById('addform');
+var itemlist=document.getElementById('items');
+form.addEventListener('Submit',additem);
+    function additem(e){
+        e.preventDefault();
+    
+    var newitem = document.getElementById('item').value;
+
+    var li = document.createElement('li');
+    li.className='list-group-item';
+    li.appendChild(document.createTextNode(newitem));
+    itemlist.appendChild(li);
+
+    }  
+
