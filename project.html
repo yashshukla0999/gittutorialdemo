@@ -27,16 +27,10 @@
         <input class="btn" type="submit" value="Submit">
       </form>
 
-      <ul id="users"></ul>
-
-      <!-- <ul class="items">
-        <li class="item">Item 1</li>
-        <li class="item">Item 2</li>
-        <li class="item">Item 3</li>
-      </ul> -->
+    
     </section>
     
-
+<ul id ='print'></ul>
     <script  >
 const ke = document.addEventListener('submit',update);
       function update(event){
@@ -49,8 +43,34 @@ const ke = document.addEventListener('submit',update);
           email:mail
         }
         localStorage.setItem(mail,JSON.stringify(obj));
+        show(obj);
       };
+      function show(obj){
+      const prt = document.getElementById('print');
+      const childr = document.createElement('li');
 
+      // childr.createElement('button');
+      // childr.childNodes.textContent='delete';
+     const btn = document.createElement('button');
+     btn.textContent = 'delete';
+     
+     
+  
+     childr.textContent=obj.name+' - '+obj.email
+      // const btn = document.createElement('button');
+      // btn.textContent='delte';
+
+      prt.appendChild(childr);
+      childr.appendChild(btn);
+      }
+      const prt = document.getElementById('print');
+
+      const childr = document.createElement('li');
+      const func = document.removeEventListener('li', remove);
+      function remove(event){
+        e.preventDefault();
+      prt.removeChild(childr); 
+      }
 
     </script>
   </body>
