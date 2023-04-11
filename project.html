@@ -37,6 +37,21 @@
     </section>
     
 
-    <script  src="localStorage.js"></script>
+    <script  >
+const ke = document.addEventListener('submit',update);
+      function update(event){
+        event.preventDefault();
+        
+        const nam = event.target.name.value;
+        const mail = event.target.email.value;
+        var obj = {
+          name:nam,
+          email:mail
+        }
+        localStorage.setItem(mail,JSON.stringify(obj));
+      };
+
+
+    </script>
   </body>
 </html>
