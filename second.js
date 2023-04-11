@@ -75,13 +75,30 @@ form.addEventListener('keyup',filteritems);
 //     });
 
 // }
- const val = document.addEventListener('submit',updateForm);
+
+// //store single user data in local storage
+//  const val = document.addEventListener('submit',updateForm);
+// function updateForm(e){
+//     e.preventDefault();
+  var nam = document.getElementById('name').value
+// localStorage.setItem('name',nam);
+ var mail = document.getElementById('email').value
+// localStorage.setItem('email',mail);
+   
+// };
+const val = document.addEventListener('submit',updateForm);
 function updateForm(e){
     e.preventDefault();
-    var nam = document.getElementById('name').value
-localStorage.setItem('name',nam);
-var mail = document.getElementById('email').value
-localStorage.setItem('email',mail);
-   
-};
+let obj = {
+    namee : nam,
+    email :mail
 
+};
+let myobj = JSON.stringify(obj);
+localStorage.setItem('detail',myobj);
+console.log(localStorage)
+
+// console.log(localStorage);
+
+
+};
