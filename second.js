@@ -67,12 +67,21 @@ form.addEventListener('keyup',filteritems);
 // li.appendChild(deletebtn);
 // addList.appendChild(li);
 // }
-function fiterItems(e){
-    var text =e.target.value.toLowerCase()
-    var items  = addList.getElementsByTagName('li');
-    Array.form(items).forEach(function(item){
-        var itemName=item.firstChild.textContent;
-    });
+// function fiterItems(e){
+//     var text =e.target.value.toLowerCase()
+//     var items  = addList.getElementsByTagName('li');
+//     Array.form(items).forEach(function(item){
+//         var itemName=item.firstChild.textContent;
+//     });
 
-}
+// }
+ const val = document.addEventListener('submit',updateForm);
+function updateForm(e){
+    e.preventDefault();
+    var nam = document.getElementById('name').value
+localStorage.setItem('name',nam);
+var mail = document.getElementById('email').value
+localStorage.setItem('email',mail);
+   
+};
 
