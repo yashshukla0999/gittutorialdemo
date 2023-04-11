@@ -48,29 +48,29 @@ const ke = document.addEventListener('submit',update);
       function show(obj){
       const prt = document.getElementById('print');
       const childr = document.createElement('li');
-
+      childr.textContent=obj.name+' - '+obj.email
       // childr.createElement('button');
       // childr.childNodes.textContent='delete';
      const btn = document.createElement('button');
      btn.textContent = 'delete';
-     
+     const edit = document.createElement('button');
+     edit.textContent='edit';
+     btn.onclick=()=>{
+      localStorage.removeItem(childr);
+      prt.removeChild(childr)
+      
+     }
      
   
-     childr.textContent=obj.name+' - '+obj.email
+
       // const btn = document.createElement('button');
       // btn.textContent='delte';
 
       prt.appendChild(childr);
       childr.appendChild(btn);
+      childr.appendChild(edit);
       }
-      const prt = document.getElementById('print');
-
-      const childr = document.createElement('li');
-      const func = document.removeEventListener('li', remove);
-      function remove(event){
-        e.preventDefault();
-      prt.removeChild(childr); 
-      }
+     
 
     </script>
   </body>
