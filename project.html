@@ -31,6 +31,7 @@
     </section>
     
 <ul id ='print'></ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.6/axios.min.js"></script>
     <script  >
 const ke = document.addEventListener('submit',update);
       function update(event){
@@ -42,9 +43,31 @@ const ke = document.addEventListener('submit',update);
           name:nam,
           email:mail
         }
-        localStorage.setItem(mail,JSON.stringify(obj));
-        show(obj);
+        axios.post("https://crudcrud.com/api/230d19eb85e94c499797a2269baf9dee/appointmentData",obj)
+        .then((resp) => {
+          show(resp.data)
+          console.log(resp);
+          
+        }).catch((err) => {
+          console.log(err);
+          
+        });
+        // localStorage.setItem(mail,JSON.stringify(obj));
+        // show(obj);
       };
+      window.addEventListener("DOMContentLoaded",()=>{
+        axios.get("https://crudcrud.com/api/230d19eb85e94c499797a2269baf9dee/appointmentData")
+        .then((resp)=>{
+          console.log(resp)
+          for(var i = 0;i<=resp.data.length;i++){
+            show(resp.data[i]);
+          }
+        })
+        .catch((err)=>{
+          console.log(err)
+
+        })
+      })
       function show(obj){
       const prt = document.getElementById('print');
       const childr = document.createElement('li');
@@ -58,6 +81,7 @@ const ke = document.addEventListener('submit',update);
      btn.onclick=()=>{
       localStorage.removeItem(childr);
       prt.removeChild(childr)
+      
       
      }
      
